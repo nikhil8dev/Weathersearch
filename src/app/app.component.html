@@ -1,0 +1,56 @@
+    
+<div class="container">
+  <div class="nav-bar">
+<input #userInput   placeholder="Enter city name" type="text">
+
+  <button (click)="getCity(userInput.value)" >search</button> 
+
+<div class="current">
+  Weather in {{weather.name}},{{weather.sys.country}}
+</div>
+  
+
+</div>
+<mat-drawer-container class="example-container">
+
+<mat-drawer mode="side" opened>
+
+ <div class="table">
+  
+    <span>
+          <label>Humidity</label>: <a>{{weather.main.humidity}}%</a>
+    </span>
+
+     <span>
+          <label>Pressure</label>: <a>{{weather.main.pressure}}</a>
+     </span>
+
+     <span>
+          <label>Sunrise</label>: <a>{{weather.sys.sunrise * 1000 | date:'H:mm'}}</a>
+
+     </span>
+
+     <span>
+          <label>Sunset</label>: <a>{{weather.sys.sunset * 1000 | date:'H:mm'}}</a>
+     </span>
+
+     <span>
+        <label>Geo coords</label>: <a>[{{weather.coord.lat}},{{weather.coord.lon}}]</a>
+    </span>
+  
+  
+</div>
+</mat-drawer>
+<mat-drawer-content>
+<div class="map">
+  <agm-map [latitude]='lat' [longitude]="lon" (mapClick)="getCoords($event)">
+      <agm-marker [latitude]="lat" [longitude]="lon"></agm-marker>
+  </agm-map>
+</div>
+</mat-drawer-content>  
+</mat-drawer-container>
+</div>
+
+
+
+<router-outlet></router-outlet>
