@@ -10,7 +10,7 @@ export class AppComponent {
   lon;
   weather;
    constructor(private WS:WeatherService){}
-     
+
     ngOnInit(){
       this.getLocation();
 
@@ -34,7 +34,7 @@ export class AppComponent {
     getCity(city){
       this.WS.getWeatherDataByCityName(city).subscribe((data:any)=>{
         this.weather = data;
-
+          console.log(data)
         this.lat = data.coord.lat;
         this.lon = data.coord.lon;
       })
@@ -48,6 +48,6 @@ export class AppComponent {
       this.WS.getWeathereDataByCoords(this.lat, this.lon).subscribe(data=>{
         this.weather = data
       })
-    } 
+    }
 }
 

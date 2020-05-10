@@ -22,11 +22,11 @@ import { NgModule } from '@angular/core';
     BrowserAnimationsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
-    apiKey:'' 
+    apiKey:''
     }),
     MatSliderModule,
     MatSidenavModule,
-   
+
   ],
   providers: [ WeatherService],
   bootstrap: [AppComponent]

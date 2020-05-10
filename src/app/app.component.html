@@ -1,14 +1,18 @@
-    
-<div class="container">
-  <div class="nav-bar">
-<input #userInput   placeholder="Enter city name" type="text">
 
-  <button (click)="getCity(userInput.value)" >search</button> 
+<div class="containe">
+  <div class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-around">
+    <a class="navbar-brand p-2" href="#">Weather</a>
 
+     <div class="col-sm-3 mx-auto d-flex flex-row">
+    <input  #userInput  class="form-control "  placeholder="Enter city name" type="text">
+    <button  class="btn btn-success" (click)="getCity(userInput.value)"  type="button" aria-controls="navbarSupportedContent" >
+       Search
+    </button>
+  </div>
 <div class="current">
   Weather in {{weather.name}},{{weather.sys.country}}
 </div>
-  
+
 
 </div>
 <mat-drawer-container class="example-container">
@@ -16,7 +20,7 @@
 <mat-drawer mode="side" opened>
 
  <div class="table">
-  
+
     <span>
           <label>Humidity</label>: <a>{{weather.main.humidity}}%</a>
     </span>
@@ -37,8 +41,8 @@
      <span>
         <label>Geo coords</label>: <a>[{{weather.coord.lat}},{{weather.coord.lon}}]</a>
     </span>
-  
-  
+
+
 </div>
 </mat-drawer>
 <mat-drawer-content>
@@ -47,7 +51,7 @@
       <agm-marker [latitude]="lat" [longitude]="lon"></agm-marker>
   </agm-map>
 </div>
-</mat-drawer-content>  
+</mat-drawer-content>
 </mat-drawer-container>
 </div>
 
